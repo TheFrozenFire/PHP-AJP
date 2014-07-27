@@ -4,7 +4,7 @@ namespace Ajp;
 class EndResponseTest extends PacketTest
 {
     protected static $packetType = '\Ajp\Packet\EndResponse';
-    protected static $serialized = "\x0A\x0B\x00\x02\x05\x01";
+    protected static $serialized = "\x41\x42\x00\x02\x05\x01";
     
     public function provideSerializablePacket()
     {

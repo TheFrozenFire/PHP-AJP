@@ -5,6 +5,8 @@ use \RuntimeException;
 
 abstract class Packet implements PacketInterface
 {
+    protected static $serializerClass = '\Ajp\PacketSerializer\Packet';
+
     protected $headerCode;
 
     protected $type;
@@ -13,7 +15,7 @@ abstract class Packet implements PacketInterface
     
     public function __construct(PacketSerializerInterface $serializer = null)
     {
-        $this->setSerializer(isset($serializer)?$serializer:new PacketSerializer\Packet);
+        $this->setSerializer(isset($serializer)?$serializer:new static::$serializerClass);
     }
     
     public function getHeaderCode()

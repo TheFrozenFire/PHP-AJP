@@ -4,7 +4,7 @@ namespace Ajp;
 class SendHeadersTest extends PacketTest
 {
     protected static $packetType = '\Ajp\Packet\SendHeaders';
-    protected static $serialized = "\x0A\x0B....\x04";
+    protected static $serialized = "\x41\x42....\x04";
     
     public function provideSerializablePacket()
     {

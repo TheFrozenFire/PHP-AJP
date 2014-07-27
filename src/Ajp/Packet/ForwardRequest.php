@@ -1,7 +1,9 @@
 <?php
 namespace Ajp\Packet;
 
-class ForwardRequest extends Packet
+use Ajp\Packet as AbstractPacket;
+
+class ForwardRequest extends AbstractPacket
 {
     protected $headerCode = self::REQUEST_CODE;
     protected $type = self::TYPE_FORWARD_REQUEST;
