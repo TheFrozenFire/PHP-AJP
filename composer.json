@@ -1,0 +1,22 @@
+{
+    "name": "thefrozenfire/ajp",
+    "description": "PHP AJP Implementation",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Justin Martin",
+            "email": "frozenfire@thefrozenfire.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-0": {
+            "Ajp": "src/"
+        },
+        "classmap": [
+            "tests/"
+        ]
+    }
+}
