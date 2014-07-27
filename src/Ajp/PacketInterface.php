@@ -74,6 +74,12 @@ interface PacketInterface
     const HEADER_RES_SERVLET_ENGINE = 0xA009;
     const HEADER_RES_STATUS = 0xA00A;
     const HEADER_RES_WWW_AUTHENTICATE = 0xA00B;
+
+    public function __construct(PacketSerializerInterface $serializer = null);
+
+    public function getHeaderCode();
     
     public function getType();
+    
+    public function getSerializer();
 }
