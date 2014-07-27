@@ -3,6 +3,9 @@ namespace Ajp\Packet;
 
 class ForwardRequest extends Packet
 {
+    protected $headerCode = self::REQUEST_CODE;
+    protected $type = self::TYPE_FORWARD_REQUEST;
+
     protected $method;
     
     protected $protocol;
