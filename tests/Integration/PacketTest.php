@@ -16,6 +16,17 @@ abstract class PacketTest extends TestCase
         );
     }
     
+    public function provideParsablePacket()
+    {
+        $stream = fopen('php://memory', 'r+');
+        fwrite($stream, static::$serialized);
+        fseek($stream, 0);
+    
+        return array(
+            array($stream, static::$packetType),
+        );
+    }
+    
     /**
      * Test packet serialization
      * 
@@ -31,5 +42,23 @@ abstract class PacketTest extends TestCase
         $serialized = $serializer->serialize($packet);
         
         $this->assertEquals($serializedExpectation, $serialized);
+    }
+    
+    /**
+     * Test packet parsing
+     *
+     * @dataProvider provideParsablePacket
+     * 
+     * @param resource $stream
+     * @param string $typeExpectation
+     * @return void
+     */
+    public function testPacketParsing($stream, $typeExpectation)
+    {
+        $packetStream = new PacketStream($stream);
+        
+        foreach($packetStream as $packet) {
+            $this->assertInstanceOf($typeExpectation, $packet);
+        }
     }
 }
