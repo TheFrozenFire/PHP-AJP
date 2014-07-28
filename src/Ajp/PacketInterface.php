@@ -16,10 +16,6 @@ interface PacketInterface
     const TYPE_CPONG = 0x09;
     const TYPE_CPING = 0x0A;
     
-    const TYPE_DATA = 0x99;
-    
-    const REQUEST_TERMINATOR = 0xFF;
-    
     const METHOD_OPTIONS = 0x01;
     const METHOD_GET = 0x02;
     const METHOD_HEAD = 0x03;
@@ -74,6 +70,22 @@ interface PacketInterface
     const HEADER_RES_SERVLET_ENGINE = 0xA009;
     const HEADER_RES_STATUS = 0xA00A;
     const HEADER_RES_WWW_AUTHENTICATE = 0xA00B;
+    
+    const ATTRIBUTE_CONTEXT = 0x01;
+    const ATTRIBUTE_SERVLET_PATH = 0x02;
+    const ATTRIBUTE_REMOTE_USER = 0x03;
+    const ATTRIBUTE_AUTH_TYPE = 0x04;
+    const ATTRIBUTE_QUERY_STRING = 0x05;
+    const ATTRIBUTE_ROUTE = 0x06;
+    const ATTRIBUTE_SSL_CERT = 0x07;
+    const ATTRIBUTE_SSL_CIPHER = 0x08;
+    const ATTRIBUTE_SSL_SESSION = 0x09;
+    const ATTRIBUTE_REQUEST_ATTRIBUTE = 0x0A;
+    const ATTRIBUTE_SSL_KEY_SIZE = 0x0B;
+    const ATTRIBUTE_SECRET = 0x0C;
+    const ATTRIBUTE_STORED_METHOD = 0x0D;
+    
+    const REQUEST_TERMINATOR = 0xFF;
 
     public function __construct(PacketSerializerInterface $serializer = null);
 

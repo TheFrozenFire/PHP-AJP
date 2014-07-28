@@ -10,7 +10,7 @@ class EndResponse extends AbstractPacket
     protected $headerCode = self::RESPONSE_CODE;
     protected $type = self::TYPE_END_RESPONSE;
     
-    protected $reuse;
+    protected $reuse = false;
     
     public function getReuse()
     {

@@ -5,6 +5,8 @@ use Ajp\Packet as AbstractPacket;
 
 class ForwardRequest extends AbstractPacket
 {
+    protected static $serializerClass = '\Ajp\PacketSerializer\ForwardRequest';
+
     protected $headerCode = self::REQUEST_CODE;
     protected $type = self::TYPE_FORWARD_REQUEST;
 
@@ -24,11 +26,11 @@ class ForwardRequest extends AbstractPacket
     
     protected $isSsl = false;
     
-    protected $headers = array();
+    protected $headers = array(
+        self::HEADER_REQ_CONTENT_LENGTH => 0,
+    );
     
     protected $attributes = array();
-    
-    protected $data;
     
     public function getMethod()
     {
@@ -149,17 +151,6 @@ class ForwardRequest extends AbstractPacket
     public function addAttribute($name, $value)
     {
         $this->attributes[$name] = $value;
-        return $this;
-    }
-    
-    public function getData()
-    {
-        return $this->data;
-    }
-    
-    public function setData($data)
-    {
-        $this->data = $data;
         return $this;
     }
 }
