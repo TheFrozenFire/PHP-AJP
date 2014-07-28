@@ -5,6 +5,8 @@ use Ajp\Packet as AbstractPacket;
 
 class SendHeaders extends AbstractPacket
 {
+    protected static $serializerClass = '\Ajp\PacketSerializer\SendHeaders';
+
     protected $headerCode = self::RESPONSE_CODE;
     protected $type = self::TYPE_SEND_HEADERS;
     

@@ -21,8 +21,8 @@ class Packet implements PacketSerializerInterface
     }
     
     protected function packHeaders(array $headers) {
-        $result = '';
         ksort($headers);
+        $result = pack('n', count($headers));
         
         foreach($headers as $type => $value) {
             if(is_int($type)) {

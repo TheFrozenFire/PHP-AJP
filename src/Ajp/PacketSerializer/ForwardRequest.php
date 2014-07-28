@@ -20,12 +20,11 @@ class ForwardRequest extends Packet
                       .$this->packString($packet->getRemoteAddress())
                       .$this->packString($packet->getRemoteHost())
                       .$this->packString($packet->getServerName())
-                      .pack('nCn', $packet->getServerPort(), $packet->getIsSsl(), count($headers))
+                      .pack('nC', $packet->getServerPort(), $packet->getIsSsl())
                       .$this->packHeaders($headers)
                       .$this->packAttributes($attributes);
         
-        $length = 1;
-        $length += strlen($packetBody);
+        $length = 1 + strlen($packetBody);
     
         return pack('nnC', $packet->getHeaderCode(), $length, $packet->getType()).$packetBody;
               

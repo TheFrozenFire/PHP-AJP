@@ -2,9 +2,8 @@
 namespace Ajp\PacketSerializer;
 
 use Ajp\PacketInterface;
-use Ajp\PacketSerializerInterface;
 
-class EndResponse implements PacketSerializerInterface
+class EndResponse extends Packet
 {
     public function serialize(PacketInterface $packet)
     {

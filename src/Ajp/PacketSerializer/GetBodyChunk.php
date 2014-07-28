@@ -2,9 +2,8 @@
 namespace Ajp\PacketSerializer;
 
 use Ajp\PacketInterface;
-use Ajp\PacketSerializerInterface;
 
-class GetBodyChunk implements PacketSerializerInterface
+class GetBodyChunk extends Packet
 {
     public function serialize(PacketInterface $packet)
     {
