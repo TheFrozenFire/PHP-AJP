@@ -1,10 +1,7 @@
 <?php
-namespace Ajp\PacketSerializer;
+namespace Ajp;
 
-use Ajp\PacketInterface;
-use Ajp\PacketSerializerInterface;
-
-class Packet implements PacketSerializerInterface
+class PacketSerializer implements PacketSerializerInterface
 {
     public function serialize(PacketInterface $packet)
     {

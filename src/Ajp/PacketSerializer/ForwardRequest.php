@@ -2,8 +2,9 @@
 namespace Ajp\PacketSerializer;
 
 use Ajp\PacketInterface;
+use Ajp\PacketSerializer;
 
-class ForwardRequest extends Packet
+class ForwardRequest extends PacketSerializer
 {
     public function serialize(PacketInterface $packet)
     {
