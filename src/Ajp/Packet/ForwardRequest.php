@@ -6,6 +6,7 @@ use Ajp\Packet as AbstractPacket;
 class ForwardRequest extends AbstractPacket
 {
     protected static $serializerClass = '\Ajp\PacketSerializer\ForwardRequest';
+    protected static $parserClass = '\Ajp\PacketParser\ForwardRequest';
 
     protected $headerCode = self::REQUEST_CODE;
     protected $type = self::TYPE_FORWARD_REQUEST;

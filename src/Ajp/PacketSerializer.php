@@ -23,7 +23,7 @@ class PacketSerializer implements PacketSerializerInterface
         
         foreach($headers as $type => $value) {
             if(is_int($type)) {
-                $result .= pack('n', $type).$this->packstring($value);
+                $result .= pack('n', $type).$this->packString($value);
             } elseif(is_string($type)) {
                 $result .= $this->packString($type).$this->packString($value);
             } else {
@@ -40,7 +40,7 @@ class PacketSerializer implements PacketSerializerInterface
         foreach($attributes as $type => $value) {
             if(is_int($type) && $type === PacketInterface::ATTRIBUTE_REQUEST_ATTRIBUTE) {
                 if(is_array($value) && count($value) == 2) {
-                    $result .= pack('c', $type).$this->packString($value[0]).$this->packString($value[1]);
+                    $result .= pack('C', $type).$this->packString($value[0]).$this->packString($value[1]);
                 } else {
                     throw new \RuntimeException('Custom request attributes must be passed as array(name, value)');
                 }
