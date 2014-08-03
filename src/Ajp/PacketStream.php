@@ -56,7 +56,7 @@ class PacketStream implements \Iterator
         }
         
         list(,$dataLength) = unpack('n', $dataLength);
-        $packetBody = fread($this->stream, $dataLength);
+        $packetBody = ($dataLength > 0)?fread($this->stream, $dataLength):null;
         
         $this->currentPacket = $this->parsePacket($packetBody);
         
@@ -86,13 +86,15 @@ class PacketStream implements \Iterator
     
     protected function parsePacket($packetBody)
     {
-        list(,$typeCode) = unpack('C', $packetBody[0]);
-        
-        if(!isset($this->typeMap[$typeCode])) {
-            throw new \RuntimeException('Unknown packet type');
+        if(is_null($packetBody)) {
+            $typeCode = null;
+        } else {
+            list(,$typeCode) = unpack('C', $packetBody[0]);
         }
         
-        $packet = new $this->typeMap[$typeCode];
+        $packetType = isset($this->typeMap[$typeCode])?$this->typeMap[$typeCode]:'\Ajp\Packet\Data';
+        
+        $packet = new $packetType;
         $parser = $packet->getParser();
         
         return $parser->parse($packet, $packetBody);
