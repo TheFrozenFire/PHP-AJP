@@ -1,12 +1,12 @@
 <?php
 namespace Ajp\PacketParser;
 
-use Ajp\PacketInterface;
+use Ajp\Packet;
 use Ajp\PacketParser;
 
 class ForwardRequest extends PacketParser
 {
-    public function parse(PacketInterface $packet, $packetBody)
+    public function parse(Packet\ForwardRequest $packet, $packetBody)
     {
         $position = 1;
     

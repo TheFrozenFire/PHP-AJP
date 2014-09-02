@@ -1,12 +1,12 @@
 <?php
 namespace Ajp\PacketSerializer;
 
-use Ajp\PacketInterface;
+use Ajp\Packet;
 use Ajp\PacketSerializer;
 
 class Data extends PacketSerializer
 {
-    public function serialize(PacketInterface $packet)
+    public function serialize(Packet\Data $packet)
     {
         $packetBody = $packet->getBody();
         

@@ -1,13 +1,8 @@
 <?php
 namespace Ajp;
 
-class PacketParser implements PacketParserInterface
+abstract class PacketParser implements PacketParserInterface
 {
-    public function parse(PacketInterface $packet, $packetBody)
-    {
-        return $packet;
-    }
-    
     protected function unpackString($packetBody, $position)
     {
         list(, $length) = unpack('n', substr($packetBody, $position, 2));

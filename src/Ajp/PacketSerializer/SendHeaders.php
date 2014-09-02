@@ -1,12 +1,12 @@
 <?php
 namespace Ajp\PacketSerializer;
 
-use Ajp\PacketInterface;
+use Ajp\Packet;
 use Ajp\PacketSerializer;
 
 class SendHeaders extends PacketSerializer
 {
-    public function serialize(PacketInterface $packet)
+    public function serialize(Packet\SendHeaders $packet)
     {
         $packetBody = pack('n', $packet->getHttpStatusCode())
                       .$this->packString($packet->getHttpStatusMessage())

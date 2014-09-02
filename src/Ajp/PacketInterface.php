@@ -87,7 +87,7 @@ interface PacketInterface
     
     const REQUEST_TERMINATOR = 0xFF;
 
-    public function __construct(PacketSerializerInterface $serializer = null);
+    public function __construct(PacketSerializerInterface $serializer = null, PacketParserInterface $parser = null);
 
     public function getHeaderCode();
     

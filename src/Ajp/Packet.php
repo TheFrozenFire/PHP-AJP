@@ -5,9 +5,9 @@ use \RuntimeException;
 
 abstract class Packet implements PacketInterface
 {
-    protected static $serializerClass = '\Ajp\PacketSerializer';
+    protected static $serializerClass = '\Ajp\PacketSerializer\Generic';
     
-    protected static $parserClass = '\Ajp\PacketParser';
+    protected static $parserClass = '\Ajp\PacketParser\Generic';
 
     protected $headerCode;
 

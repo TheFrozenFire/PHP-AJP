@@ -1,13 +1,8 @@
 <?php
 namespace Ajp;
 
-class PacketSerializer implements PacketSerializerInterface
+abstract class PacketSerializer implements PacketSerializerInterface
 {
-    public function serialize(PacketInterface $packet)
-    {
-        return pack('nnC', $packet->getHeaderCode(), 1, $packet->getType());
-    }
-    
     protected function packString($string) {
         $length = strlen($string);
         if($length == 0) {

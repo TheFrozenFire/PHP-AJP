@@ -1,12 +1,12 @@
 <?php
 namespace Ajp\PacketSerializer;
 
-use Ajp\PacketInterface;
+use Ajp\Packet;
 use Ajp\PacketSerializer;
 
 class GetBodyChunk extends PacketSerializer
 {
-    public function serialize(PacketInterface $packet)
+    public function serialize(Packet\GetBodyChunk $packet)
     {
         return pack('nnCn', $packet->getHeaderCode(), 3, $packet->getType(), $packet->getRequestedLength());
     }

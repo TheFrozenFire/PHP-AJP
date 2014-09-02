@@ -1,12 +1,12 @@
 <?php
 namespace Ajp\PacketParser;
 
-use Ajp\PacketInterface;
+use Ajp\Packet;
 use Ajp\PacketParser;
 
 class EndResponse extends PacketParser
 {
-    public function parse(PacketInterface $packet, $packetBody)
+    public function parse(Packet\EndResponse $packet, $packetBody)
     {
         list(,$packetType, $reuse) = unpack('CC', $packetBody);
         
