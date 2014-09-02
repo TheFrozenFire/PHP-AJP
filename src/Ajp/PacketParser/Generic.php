@@ -7,7 +7,7 @@ use Ajp\PacketParser;
 
 class Generic extends PacketParser
 {
-    public function parse(PacketInterface $packet, $packetBody)
+    public function parse(PacketInterface $packet)
     {
         return $packet;
     }
